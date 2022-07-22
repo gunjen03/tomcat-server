@@ -22,9 +22,21 @@ pipeline {
                 expression { !params.destroy }
             }
             steps {
-                echo "Terraform plan is ready for review"
+                echo "Please review the terraform plan for creating the resources"
 
-                sh ('terraform plan -var-file=environments/dev.tfvars')
+                sh ('terraform plan -var-file=environments/dev.tfvars -out=current.tfplan')
+                echo "Please review the terraform plan"
+
+            }
+        }
+        stage('terraform destroy plan') {
+            when {
+                expression { params.destroy }
+            }
+            steps {
+
+                sh ('terraform plan -var-file=environments/dev.tfvars -destroy -out=current.tfplan')
+                echo "Please review the terraform plan for destroying the resources"
 
             }
         }
