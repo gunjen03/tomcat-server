@@ -79,7 +79,11 @@ pipeline {
 
     post {
         always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            script {
+                if (currentBuild.currentResult == 'FAILURE') {
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "vinay93avk@gmail.com", sendToIndividuals: true])
+                 }
+            }
         }
-    }
+}
 }
