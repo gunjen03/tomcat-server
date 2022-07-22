@@ -67,5 +67,13 @@ pipeline {
                 sh ('terraform apply current.tfplan')
             }
         }
+        stage('terraform destroy') {
+            when {
+                expression { params.destroy }
+            }
+            steps {
+                sh ('terraform apply current.tfplan')
+            }
+        }
     }
 }
