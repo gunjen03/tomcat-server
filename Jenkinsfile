@@ -76,4 +76,13 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            script {
+                if (currentBuild.currentResult == 'FAILURE') {
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "vinay93avk.com", sendToIndividuals: true])
+                 }
+            }
+        }
 }
