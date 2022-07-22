@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "project-bucket-gunjan"
-    key    = "terraform-tomcatserver.tfstate"
+    bucket = "serverless-gunjan-s3"
+    key    = "tomcatserver.tfstate"
     region = "us-east-1"
   }
 }
