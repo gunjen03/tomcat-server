@@ -40,5 +40,32 @@ pipeline {
 
             }
         }
+
+        stage("ValidateBeforeDeploy") {
+            when {
+                expression { !params.destroy }
+            }
+            steps {
+                input 'Are you sure? Review the output of the previous step before proceeding!'
+            }
+        }
+
+        stage("ValidateBeforeDestroy") {
+            when {
+                expression { params.destroy }
+            }
+            steps {
+                input 'Are you sure? Review the output of the previous step before proceeding!'
+            }
+        }
+
+        stage('TerraApplying') {
+            when {
+                expression { !params.destroy }
+            }
+            steps {
+                sh ('terraform apply current.tfplan')
+            }
+        }
     }
 }
