@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh_http_protocol"
+  name        = "allow_ssh_protocol"
   description = "this security group allows ssh and http"
   vpc_id      = var.vpc_id
   
