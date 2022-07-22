@@ -3,7 +3,7 @@ resource "aws_lb" "ALB-tomcat" {
   name               = "${var.name}-ALB-tomcat"
   internal           = false
   subnets            = ["${var.public_subnet_1_id}", "${var.public_subnet_2_id}"]
-  security_groups    = ["${aws_security_group.allow_ssh_http.id}"]
+  security_groups    = ["${aws_security_group.allow_ssh.id}"]
   load_balancer_type = "application"
 
   tags = {

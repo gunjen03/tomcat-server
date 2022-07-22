@@ -28,7 +28,7 @@ resource "aws_launch_configuration" "tomcat" {
   key_name                    = var.ssh_keypair_name
   associate_public_ip_address = true
   enable_monitoring           = false
-  security_groups = ["${aws_security_group.allow_ssh_http.id}"]
+  security_groups = ["${aws_security_group.allow_ssh.id}"]
 
   root_block_device {
     volume_size = 24
