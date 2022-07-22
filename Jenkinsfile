@@ -77,13 +77,13 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            script {
-                if (currentBuild.currentResult == 'FAILURE') {
-                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "vinay93avk@gmail.com", sendToIndividuals: true])
-                 }
-            }
-        }
-}
+//     post {
+//         always {
+//             script {
+//                 if (currentBuild.currentResult == 'FAILURE') {
+//                 step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "vinay93avk@gmail.com", sendToIndividuals: true])
+//                  }
+//             }
+//         }
+// }
 }
