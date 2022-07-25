@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('Gunjan-aws-creds')
+        AWS_ACCESS_KEY_ID     = credentials('aws-creds')
     }
 
     parameters {
