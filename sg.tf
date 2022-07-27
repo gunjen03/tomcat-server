@@ -17,12 +17,12 @@ resource "aws_security_group" "allow_ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] #var.pub_vpc/vpn_ip or include you personce pc IP
   }
-  ingress {
-    from_port   = 8090
-    to_port     = 8090
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] #var.pub_vpc/vpn_ip or include you personce pc IP
-  }
+  # ingress {
+  #   from_port   = 8090
+  #   to_port     = 8090
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"] #var.pub_vpc/vpn_ip or include you personce pc IP
+  # }
 
 
   egress {
